@@ -6,11 +6,12 @@ import java.io.IOException;
 
 public class HttpClient {
 
-    public String getRequest(String baseUrl) throws IOException {
+    public String getRequest(String baseUrl, String token) throws IOException {
         Request request = new Request.Builder()
                 .url(baseUrl)
                 .get()
                 .addHeader("Content-Type", "application/json")
+                .addHeader("Authorization", token)
                 .build();
 
         OkHttpClient client = new OkHttpClient();

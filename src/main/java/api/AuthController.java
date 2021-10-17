@@ -1,5 +1,6 @@
 package api;
 
+import io.qameta.allure.Step;
 import okhttp3.*;
 
 import java.io.IOException;
@@ -21,16 +22,13 @@ public class AuthController {
         return response.body().string();
     }
 
+    @Step("Method singUp/singIn")
     public String singUp(String url, String jsonObject) throws IOException {
 
         RequestBody requestBody = RequestBody.create(jsonObject.toString().getBytes(StandardCharsets.UTF_8));
         String requestAuth = postRequestAuth(url, requestBody);
         System.out.println(requestAuth);
         return requestAuth;
-    }
-
-    public void singIn(){
-
     }
 }
 
