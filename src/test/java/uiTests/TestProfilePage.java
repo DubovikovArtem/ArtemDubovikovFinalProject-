@@ -29,7 +29,7 @@ public class TestProfilePage extends BaseTest {
     /**
      * Пользователь может залогиниться, перейти на страницу Profile и изменить свои данные, проверить что новые данные отображаются корректно
      */
-    @Test
+    @Test(priority = 10)
     public void testUpdateProfile() {
         String name = "ArtemTestNameUpdate";
         String lastName = "ArtemTestLastNameUpdate";
@@ -48,7 +48,7 @@ public class TestProfilePage extends BaseTest {
     /**
      * Пользователь может залогиниться, перейти на страницу Profile и создать новое объявление. Проверить, что оно отображается в секции My Jobs
      */
-    @Test
+    @Test(priority = 20)
     public void testAddNewJob() {
         ProfilePage profilePage = new ProfilePage();
         profilePage.createNewJob();
@@ -65,7 +65,7 @@ public class TestProfilePage extends BaseTest {
      * Пользователь может залогиниться, перейти на страницу Profile, просмотреть список всех
      * своих объявлений, увидеть количество комментариев для каждого. Так же он может удалить какое-то из объявлений.
      */
-    @Test
+    @Test(priority = 30)
     public void testDeleteJob() {
         ProfilePage profilePage = new ProfilePage();
         profilePage.deleteJob(jobName);

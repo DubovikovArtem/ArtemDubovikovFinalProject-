@@ -21,8 +21,5 @@ public class TestCreateNewAccount extends BaseTest{
         registerPage.inputPassword(password);
         registerPage.inputConfirmPassword(password);
         registerPage.clickRegisterButton();
-
-        //TODO assert OK не понимаю как отлавить ответ на странице
-
     }
 }

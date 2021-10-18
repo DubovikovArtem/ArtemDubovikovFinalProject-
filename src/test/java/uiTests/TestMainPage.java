@@ -23,7 +23,7 @@ public class TestMainPage extends BaseTest {
     /**
      * Пользователь может залогиниться, выбрать объявление на главной странице, просмотреть его детали, оставить комментарий.
      */
-    @Test
+    @Test(priority = 10)
     public void testMainPageJobLeaveComment() {
         MainPage mainPage = new MainPage();
         mainPage.chooseJob("title");

@@ -1,6 +1,7 @@
 package pageObjects;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -13,11 +14,13 @@ public class HomePage {
     public final SelenideElement password = $("#mat-input-20");
     public final SelenideElement confirmPassword = $("#mat-input-21");
 
+    @Step("Переход на страницу регистрации")
     public RegisterPage openPageCreateAccount(){
         createAccountLink.click();
         return new RegisterPage();
     }
 
+    @Step("Переход на страницу логина")
     public void openLogInPage(){
         logInLink.click();
     }
