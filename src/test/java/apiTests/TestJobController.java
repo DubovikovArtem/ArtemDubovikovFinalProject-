@@ -2,13 +2,14 @@ package apiTests;
 
 import api.BaseApi;
 import api.JobController;
-import api.UserController;
 import com.google.gson.Gson;
 import entity.Job;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+
+import static apiTests.BaseTestApi.urlCreate;
 
 public class TestJobController {
     private final String token = new BaseApi().token();
@@ -25,7 +26,7 @@ public class TestJobController {
 
         String jsonObject = new Gson().toJson(job);
         JobController jobController = new JobController();
-        jobController.jobControllerPost("https://freelance.lsrv.in.ua/api/job/create", jsonObject, token);
+        jobController.jobControllerPost(urlCreate("/job/create"), jsonObject, token);
 
         String title = new BaseApi().returnValue(jsonObject, "title");
         Assert.assertEquals(title, "ApiTitle");
@@ -37,7 +38,7 @@ public class TestJobController {
 
         String jsonObject = new Gson().toJson(job);
         JobController jobController = new JobController();
-        jobController.jobControllerPost("https://freelance.lsrv.in.ua/api/job/delete/298", jsonObject, token);
+        jobController.jobControllerPost(urlCreate("/job/delete/298"), jsonObject, token);
 
         String message = new BaseApi().returnValue(jsonObject, "message");
         Assert.assertEquals(message, "Job is deleted");
@@ -46,7 +47,7 @@ public class TestJobController {
     @Test
     public void testGetJobId() throws IOException {
         BaseApi baseApi = new BaseApi();
-        String jsonObject = baseApi.get("https://freelance.lsrv.in.ua/api/job/296", token);
+        String jsonObject = baseApi.get(urlCreate("/job/296"), token);
         System.out.println(jsonObject);
 
         String title = new BaseApi().returnValue(jsonObject, "title");
@@ -56,7 +57,7 @@ public class TestJobController {
     @Test
     public void testGetJobUser() throws IOException {
         BaseApi baseApi = new BaseApi();
-        String jsonObject = baseApi.get("https://freelance.lsrv.in.ua/api/job/user/jobs", token);
+        String jsonObject = baseApi.get(urlCreate("/job/user/jobs"), token);
         System.out.println(jsonObject);
 
         String user = new BaseApi().returnValueFromArray(jsonObject, "user");
@@ -66,7 +67,7 @@ public class TestJobController {
     @Test
     public void testGetJobAll() throws IOException {
         BaseApi baseApi = new BaseApi();
-        String jsonObject = baseApi.get("https://freelance.lsrv.in.ua/api/job/all", token);
+        String jsonObject = baseApi.get(urlCreate("/job/all"), token);
         System.out.println(jsonObject);
 
         String user = new BaseApi().returnValueFromArray(jsonObject, "user");

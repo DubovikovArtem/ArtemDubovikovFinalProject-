@@ -26,10 +26,7 @@ public class TestProfilePage extends BaseTest {
         mainPage.goToProfile();
     }
 
-    /**
-     * Пользователь может залогиниться, перейти на страницу Profile и изменить свои данные, проверить что новые данные отображаются корректно
-     */
-    @Test(priority = 10)
+    @Test(priority = 10,description = "Пользователь может залогиниться, перейти на страницу Profile и изменить свои данные, проверить что новые данные отображаются корректно")
     public void testUpdateProfile() {
         String name = "ArtemTestNameUpdate";
         String lastName = "ArtemTestLastNameUpdate";
@@ -45,10 +42,7 @@ public class TestProfilePage extends BaseTest {
         Assert.assertEquals(result, expectedResult);
     }
 
-    /**
-     * Пользователь может залогиниться, перейти на страницу Profile и создать новое объявление. Проверить, что оно отображается в секции My Jobs
-     */
-    @Test(priority = 20)
+    @Test(priority = 20,description = "Пользователь может залогиниться, перейти на страницу Profile и создать новое объявление. Проверить, что оно отображается в секции My Jobs")
     public void testAddNewJob() {
         ProfilePage profilePage = new ProfilePage();
         profilePage.createNewJob();
@@ -61,11 +55,8 @@ public class TestProfilePage extends BaseTest {
         Assert.assertEquals(result, jobName);
     }
 
-    /**
-     * Пользователь может залогиниться, перейти на страницу Profile, просмотреть список всех
-     * своих объявлений, увидеть количество комментариев для каждого. Так же он может удалить какое-то из объявлений.
-     */
-    @Test(priority = 30)
+    @Test(priority = 30, description = "Пользователь может залогиниться, перейти на страницу Profile, просмотреть список всех " +
+            "своих объявлений, увидеть количество комментариев для каждого. Так же он может удалить какое-то из объявлений.")
     public void testDeleteJob() {
         ProfilePage profilePage = new ProfilePage();
         profilePage.deleteJob(jobName);

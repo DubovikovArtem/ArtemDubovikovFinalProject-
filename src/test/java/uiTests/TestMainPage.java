@@ -20,10 +20,7 @@ public class TestMainPage extends BaseTest {
         logInPage.login(username, password);
     }
 
-    /**
-     * Пользователь может залогиниться, выбрать объявление на главной странице, просмотреть его детали, оставить комментарий.
-     */
-    @Test(priority = 10)
+    @Test(priority = 10, description = "Пользователь может залогиниться, выбрать объявление на главной странице, просмотреть его детали, оставить комментарий.")
     public void testMainPageJobLeaveComment() {
         MainPage mainPage = new MainPage();
         mainPage.chooseJob("title");

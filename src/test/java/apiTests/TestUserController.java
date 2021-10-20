@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
+import static apiTests.BaseTestApi.urlCreate;
+
 public class TestUserController {
     private final String token = new BaseApi().token();
 
@@ -22,7 +24,7 @@ public class TestUserController {
 
         String jsonObject = new Gson().toJson(user);
         UserController userController = new UserController();
-        userController.update("https://freelance.lsrv.in.ua/api/user/update", jsonObject, token);
+        userController.update(urlCreate("/user/update"), jsonObject, token);
 
         String username = new BaseApi().returnValue(jsonObject, "username");
         String name = new BaseApi().returnValue(jsonObject, "name");
@@ -35,7 +37,7 @@ public class TestUserController {
     @Test
     public void testGetUserId() throws IOException {
         BaseApi baseApi = new BaseApi();
-        String jsonObject = baseApi.get("https://freelance.lsrv.in.ua/api/user/71", token);
+        String jsonObject = baseApi.get(urlCreate("/user/71"), token);
         System.out.println(jsonObject);
 
         String username = new BaseApi().returnValue(jsonObject, "username");
@@ -48,7 +50,7 @@ public class TestUserController {
     @Test
     public void testGetUser() throws IOException {
         BaseApi baseApi = new BaseApi();
-        String jsonObject = baseApi.get("https://freelance.lsrv.in.ua/api/user/", token);
+        String jsonObject = baseApi.get(urlCreate("/api/user/"), token);
         System.out.println(jsonObject);
 
         String username = new BaseApi().returnValue(jsonObject, "username");

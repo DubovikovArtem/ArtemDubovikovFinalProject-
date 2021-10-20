@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TestLogIn extends BaseTest {
 
-    @Test
+    @Test(description = "Пользователь может залогиниться")
     public void testLogin() {
         open(url + "home");
         HomePage homePage = new HomePage();
