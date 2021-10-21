@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" >
+    <test name="Test Ui" >
+        <classes>
+            <!--<class name="uiTests.TestCreateNewAccount" /> -->
+            <class name="uiTests.TestLogIn" />
+            <class name="uiTests.TestProfilePage" />
+            <class name="uiTests.TestMainPage" />
+        </classes>
+    </test>
+</suite>
